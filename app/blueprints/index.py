@@ -34,6 +34,17 @@ def complete_task(id):
     return redirect("/")
 
 
+@index_bp.route("/task/<int:id>/delete/")
+def delete_task(id):
+    current_task = Task.query.filter_by(id=id).first()
+
+    if current_task:
+        db.session.delete(current_task)
+        db.session.commit()
+
+    return redirect("/")
+
+
 @index_bp.route("/populate/")
 def populate():
     # Sample data to be inserted
