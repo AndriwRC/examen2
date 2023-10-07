@@ -21,6 +21,19 @@ def index():
     return render_template("index.html", db_info=db_info)
 
 
+@index_bp.route("/task/<int:id>/complete/")
+def complete_task(id):
+    current_task = Task.query.filter_by(id=id).first()
+
+    if current_task.completed:
+        current_task.completed = False
+    else:
+        current_task.completed = True
+
+    db.session.commit()
+    return redirect("/")
+
+
 @index_bp.route("/populate/")
 def populate():
     # Sample data to be inserted

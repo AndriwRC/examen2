@@ -17,7 +17,7 @@
             <li class="task">
                 <span class="task__id">{{task.id}}</span>
                 <span class="task__text">{{task.description}}</span>
-                <a class="task__icon" href="/task/{{ task[0] }}/complete/">
+                <a class="task__icon" href="/task/{{ task.id }}/complete/">
                     {% if task.completed %}
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
@@ -31,7 +31,7 @@
                     </svg>
                     {%endif%}
                 </a>
-                <a class="task__icon task__icon--delete" href="/task/{{ task[0] }}/delete/">
+                <a class="task__icon task__icon--delete" href="/task/{{ task.id }}/delete/">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
